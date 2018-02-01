@@ -40,7 +40,7 @@ app.get("/view", function(req, res) {
 });
 
 // Get all characters
-app.get("/table", function(req, res) {
+app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "all.html"));
 });
 
