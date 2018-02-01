@@ -18,7 +18,7 @@
       <h3>Current Reservations and Waitlist</h3>
       <hr>
       <a href="/add"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Make Reservation</button></a>
-      <a href="/code_home"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span>Home</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span>Home</button></a>
     </div>
     <div class="row">
 
@@ -45,7 +45,7 @@
                 </h3>
               </div>
               <div class="panel-body" id="waitlist-section">
-        
+                
               </div>
             </div>
           </div>
@@ -53,7 +53,21 @@
   </div>
 
   <script type="text/javascript">
+    var wellSection = $("<div>");
 
+  function tableWell(){
+    $.get("/api/", function (data){
+      for (var i = 0; i < data.length; i++) {
+        wellSection.append("<div>" + data[i].name + data[i].phone + "</div>")
+      }
+
+      $("#table-section").append(wellSection);
+
+      console.log(data);
+    });
+  }
+  tableWell();
+    
   </script>
   
 </body>

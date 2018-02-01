@@ -69,18 +69,17 @@ app.post("/api/new", function(req, res) {
   // Using a RegEx Pattern to remove spaces from newReservation
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
-
-  console.log(newReservation);
-
-  for (var i = 0; i < reservations.length; i++) {
-    if (reservations >= 5) {
+ 
+    console.log(newReservation)
+    if (reservations.length > 5) {
         waitList.push(newReservation)
+        return res.json(true)
     }
     else {
         reservations.push(newReservation);
+        return res.json(false)
     }
   res.json(newReservation);
-  };
 });
 
 // Starts the server to begin listening
