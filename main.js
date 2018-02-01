@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 // =============================================================
 
 var reservations = [];
-var waitList = [],
+var waitList = [];
 
 // Routes
 // =============================================================
@@ -76,6 +76,7 @@ app.post("/api/new", function(req, res) {
         reservations.push(rewReservation);
     }
   res.json(rewReservation);
+  };
 });
 
 // Starts the server to begin listening
