@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 // =============================================================
 
 var reservations = [];
-var waitList = [],
+var waitList = [];
 
 // Routes
 // =============================================================
@@ -35,9 +35,13 @@ app.get("/add", function(req, res) {
   res.sendFile(path.join(__dirname, "add.html"));
 });
 
-// Get all characters
 app.get("/view", function(req, res) {
   res.json(reservations);
+});
+
+// Get all characters
+app.get("/table", function(req, res) {
+  res.sendFile(path.join(__dirname, "all.html"));
 });
 
 // Search for Specific Character (or all characters) - provides JSON
@@ -76,6 +80,7 @@ app.post("/api/new", function(req, res) {
         reservations.push(rewReservation);
     }
   res.json(rewReservation);
+  };
 });
 
 // Starts the server to begin listening
